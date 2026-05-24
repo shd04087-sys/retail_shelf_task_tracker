@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Retail Shelf Task Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>Retail Shelf Task Tracker</h1>
+        <p>Track shelf, reset, and merchandising tasks for a store team.</p>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="dashboard" aria-labelledby="dashboard-title">
+        <h2 id="dashboard-title">Dashboard</h2>
+        <div class="summary-grid" id="summaryGrid"></div>
+      </section>
+
+      <section class="task-form-section" aria-labelledby="form-title">
+        <h2 id="form-title">Add Task</h2>
+        <form id="taskForm" class="task-form">
+          <input type="hidden" id="taskId">
+
+          <label>
+            Bay/location
+            <input id="bayLocation" name="bayLocation" type="text" required>
+          </label>
+
+          <label>
+            SKU
+            <input id="sku" name="sku" type="text" required>
+          </label>
+
+          <label class="full-span">
+            Task description
+            <textarea id="description" name="description" rows="3" required></textarea>
+          </label>
+
+          <label>
+            Status
+            <select id="status" name="status" required>
+              <option>Not Started</option>
+              <option>In Progress</option>
+              <option>Done</option>
+              <option>Issue</option>
+            </select>
+          </label>
+
+          <label>
+            Priority
+            <select id="priority" name="priority" required>
+              <option>Low</option>
+              <option selected>Medium</option>
+              <option>High</option>
+            </select>
+          </label>
+
+          <label class="full-span">
+            Notes
+            <textarea id="notes" name="notes" rows="2"></textarea>
+          </label>
+
+          <div class="form-actions full-span">
+            <button type="submit" class="primary-button">Save Task</button>
+            <button type="button" id="cancelEditButton" class="secondary-button hidden">Cancel Edit</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="task-tools" aria-labelledby="filter-title">
+        <h2 id="filter-title">Tasks</h2>
+        <label>
+          Filter by status
+          <select id="statusFilter">
+            <option value="All">All</option>
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Done</option>
+            <option>Issue</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="task-list" id="taskList" aria-live="polite"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
